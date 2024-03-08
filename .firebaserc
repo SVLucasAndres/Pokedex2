@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "pokedex-858ac": {
+      "hosting": {
+        "app": [
+          "pokedex-858ac"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "pokedex-858ac"
+  }
+}

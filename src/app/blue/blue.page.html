@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Conectate al ESP32 con BLUETOOTH</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngFor="let disp of mensaje">
+    <ion-card-header>
+      <ion-card-title>{{disp.address}}</ion-card-title>
+      <ion-card-subtitle>{{disp.name}}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-button (click)="conect(disp.address)">
+      <ion-icon slot="start" name="bluetooth-sharp"></ion-icon>
+      Conectar
+    </ion-button>
+  </ion-card>
+  
+</ion-content>

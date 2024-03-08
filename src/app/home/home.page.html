@@ -1,20 +1,30 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content class="ion-activatable custom-parent">
+  <ion-ripple-effect type="bounded" [class]=pokemonType ></ion-ripple-effect>
+  <div class="todo">
+    <ion-card class="card ">
+      <ion-card-title>
+        Ingresar Pokemón
+      </ion-card-title>
+      <ion-label position="stacked">Nombre o ID del Pokémon</ion-label>
+      <ion-input placeholder="Ingrese el nombre o ID" [(ngModel)]="ingreso"></ion-input>
+      <ion-button expand="full" (click)="ingresar()">Buscar Pokémon</ion-button>
+      <img [src]=pokemonSprite width="100px">
+      <ion-list>
+        <ion-item>
+          <B>NOMBRE: </B>{{pokemonName}}
+        </ion-item>
+        <ion-item>
+          <B>ID: </B>{{pokemonID}}
+        </ion-item>
+        <ion-item>
+          <B>TIPO: </B>{{pokemonType}}
+        </ion-item>
+      </ion-list>
+    </ion-card>
   </div>
+    
+  
+
+ 
 </ion-content>

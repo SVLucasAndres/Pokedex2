@@ -1,22 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { HomePage } from './home.page';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { IonicModule } from '@ionic/angular';
+
+import { BluePageRoutingModule } from './blue-routing.module';
+
+import { BluePage } from './blue.page';
 import { BluetoothSerial } from '@awesome-cordova-plugins/bluetooth-serial';
 import { Storage } from '@ionic/storage';
-
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    BluePageRoutingModule
   ],
-  declarations: [HomePage],
+  declarations: [BluePage],
   providers:[BluetoothSerial,Storage]
 })
-export class HomePageModule {}
+export class BluePageModule {}

@@ -8,8 +8,12 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'blue',
     pathMatch: 'full'
+  },
+  {
+    path: 'blue',
+    loadChildren: () => import('./blue/blue.module').then( m => m.BluePageModule)
   },
 ];
 
