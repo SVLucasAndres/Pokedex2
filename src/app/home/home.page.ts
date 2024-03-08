@@ -73,7 +73,7 @@ export class HomePage {
   address:any;
   async conect(){
     this.showLoading();
-    this.address = this.storage.get('BleUser');
+    this.address = this.storage.get("BleUser");
     await this.ble.connect(this.address).subscribe(async success =>{
       this.loadingCtrl.dismiss();
       this.deviceConnected();

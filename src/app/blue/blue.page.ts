@@ -11,7 +11,8 @@ export class BluePage implements OnInit {
   mensaje:any;
   constructor(private storage:Storage,private ble:BluetoothSerial,private router:NavController,private alert:AlertController, private loadingCtrl:LoadingController) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.storage.create();
     this.ActivarBluetooth();
   }
   async presentAlert(meserror:any) {
@@ -49,11 +50,12 @@ export class BluePage implements OnInit {
   async conect(address:any){
     this.showLoading();
     await this.ble.connect(address).subscribe(async success =>{
-      this.loadingCtrl.dismiss();
-      this.deviceConnected();
-      this.storage.set('BleUser', address);
-      this.enviar("ADDRESS CONECTADA");
       this.router.navigateForward('home');
+      this.loadingCtrl.dismiss();
+      await this.deviceConnected();
+      
+      await this.enviar("ADRES");
+      await this.storage.set("BleUser", address);
     },error =>{
       this.presentAlert("Error, no fue posible realizar la conexión");
     });
