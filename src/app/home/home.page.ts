@@ -33,8 +33,10 @@ export class HomePage {
         this.pokemonID = response.id;
         this.pokemonType = response.types[0].type.name;
         this.pokemonSprite = response.sprites.front_default;
-        this.ruta = doc(this.db,'pokemons',this.pokemonName);
+        this.showLoading();
+         this.ruta = await doc(this.db,'pokemons',this.pokemonName);
 	      await setDoc(this.ruta, { type: this.pokemonType});
+        this.loadingCtrl.dismiss();
         this.enviar(this.pokemonType);
       }));
     } catch (error) {

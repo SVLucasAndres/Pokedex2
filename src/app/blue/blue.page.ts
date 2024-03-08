@@ -50,10 +50,10 @@ export class BluePage implements OnInit {
   async conect(address:any){
     this.showLoading();
     await this.ble.connect(address).subscribe(async success =>{
+      this.loadingCtrl.dismiss();
       this.router.navigateForward('home');
       this.loadingCtrl.dismiss();
       await this.deviceConnected();
-      
       await this.enviar("ADRES");
       await this.storage.set("BleUser", address);
     },error =>{
