@@ -51,11 +51,9 @@ export class BluePage implements OnInit {
     await this.ble.connect(address).subscribe(async success =>{
       this.loadingCtrl.dismiss();
       this.deviceConnected();
-      this.presentAlert(success);
       this.storage.set('BleUser', address);
       this.enviar("ADDRESS CONECTADA");
-      this.router.navigateRoot('home');
-
+      this.router.navigateForward('home');
     },error =>{
       this.presentAlert("Error, no fue posible realizar la conexión");
     });
